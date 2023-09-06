@@ -1,27 +1,34 @@
+import { EventCard } from "@/components";
+import { Attendee, ScheduledEent } from "@/modules";
+
 type ScheduledEventProps = {
-  date: Date;
-  title: string;
-  qtyPeople: number;
-  totalValue: number;
+  event: ScheduledEent;
 };
 
-export function ScheduledEvent({
-  date,
-  title,
-  qtyPeople,
-  totalValue,
-}: ScheduledEventProps) {
-  console.info(date);
+const sumTotalValue = (attendees: Attendee[]) => {
+  const totalValue = attendees.reduce(
+    (accumulator: number, currentValue: Attendee) =>
+      accumulator + currentValue.contribution,
+    0
+  );
+  return totalValue;
+};
+
+export function ScheduledEvent({ event }: ScheduledEventProps) {
+  const { date, title, attendees } = event;
   return (
-    <div className="w-72 h-48 bg-white p-6 rounded-sm shadow-md">
-      <p>
-        {date.getDay()}/{date.getMonth() + 1}
-      </p>
-      <p>{title}</p>
-      <div className="flex justify-between">
-        <div className="">{qtyPeople}</div>
-        <div className="">{totalValue}</div>
+    <EventCard className=" bg-white justify-between flex flex-col">
+      <div>
+        <p className="text-3xl font-extrabold">
+          {date.getDay()}/{date.getMonth() + 1}
+        </p>
+        <p className="text-xl font-bold">{title}</p>
       </div>
-    </div>
+
+      <div className="flex justify-between text-xl font-medium">
+        <p>{attendees.length}</p>
+        <p>R$ {sumTotalValue(attendees)}</p>
+      </div>
+    </EventCard>
   );
 }
