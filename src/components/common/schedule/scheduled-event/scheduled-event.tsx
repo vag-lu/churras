@@ -1,5 +1,7 @@
 import { EventCard } from "@/components";
 import { Attendee, ScheduledEent } from "@/modules";
+import Image from "next/image";
+import Link from "next/link";
 
 type ScheduledEventProps = {
   event: ScheduledEent;
@@ -15,9 +17,12 @@ const sumTotalValue = (attendees: Attendee[]) => {
 };
 
 export function ScheduledEvent({ event }: ScheduledEventProps) {
-  const { date, title, attendees } = event;
+  const { date, title, attendees, id } = event;
   return (
-    <EventCard className=" bg-white justify-between flex flex-col">
+    <EventCard
+      href={`/event/${id}`}
+      className="bg-white justify-between flex flex-col"
+    >
       <div>
         <p className="text-3xl font-extrabold">
           {date.getDay()}/{date.getMonth() + 1}
@@ -26,7 +31,16 @@ export function ScheduledEvent({ event }: ScheduledEventProps) {
       </div>
 
       <div className="flex justify-between text-xl font-medium">
-        <p>{attendees.length}</p>
+        <div>
+          <Image
+            alt="people quantity icon"
+            src="/icon-people.svg"
+            width={18}
+            height={15.3}
+          />
+          <p>{attendees.length}</p>
+        </div>
+
         <p>R$ {sumTotalValue(attendees)}</p>
       </div>
     </EventCard>
