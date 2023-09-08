@@ -21,7 +21,7 @@ export function ScheduledEvent({ event }: ScheduledEventProps) {
   return (
     <EventCard
       href={`/event/${id}`}
-      className="bg-white justify-between flex flex-col"
+      className="bg-white justify-between flex flex-col hover:bg-yellow-100"
     >
       <div>
         <p className="text-3xl font-extrabold">
@@ -31,7 +31,7 @@ export function ScheduledEvent({ event }: ScheduledEventProps) {
       </div>
 
       <div className="flex justify-between text-xl font-medium">
-        <div>
+        <div className="flex gap-1">
           <Image
             alt="people quantity icon"
             src="/icon-people.svg"
@@ -41,7 +41,15 @@ export function ScheduledEvent({ event }: ScheduledEventProps) {
           <p>{attendees.length}</p>
         </div>
 
-        <p>R$ {sumTotalValue(attendees)}</p>
+        <div className="flex gap-1">
+          <Image
+            alt="people quantity icon"
+            src="/icon-money.svg"
+            width={18}
+            height={15.3}
+          />
+          <p>R$ {sumTotalValue(attendees)}</p>
+        </div>
       </div>
     </EventCard>
   );
