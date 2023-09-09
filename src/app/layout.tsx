@@ -2,6 +2,8 @@ import { PageHead } from "@/components";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { ApiScheduledEventsReturn } from "@/mocks/api-scheduled-events-return";
+import { setSessionStorage } from "@/utils/storage/session-storage";
 
 const inter = Inter({ subsets: ["latin"] });
 

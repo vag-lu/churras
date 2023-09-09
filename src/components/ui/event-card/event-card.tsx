@@ -11,7 +11,7 @@ export function EventCard({ children, href, className = "" }: EventCardProps) {
   return (
     <Link
       href={href ?? ""}
-      className={`${className} w-72 h-48 p-6 rounded-sm shadow-md`}
+      className={`${className} w-72 h-48 p-6 rounded-sm shadow-md hover:bg-yellow-100`}
     >
       {children}
     </Link>

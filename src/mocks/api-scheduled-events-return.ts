@@ -1,4 +1,6 @@
-export const ApiScheduledEventsReturn = [
+import { ScheduledEventType } from "@/modules";
+
+export const ApiScheduledEventsReturn: ScheduledEventType[] = [
   {
     id: 1,
     date: new Date("2023-12-1"),

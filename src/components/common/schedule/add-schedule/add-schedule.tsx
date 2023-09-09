@@ -3,7 +3,10 @@ import Image from "next/image";
 
 export function AddSchedule() {
   return (
-    <EventCard className="flex flex-col items-center justify-center bg-gray-200">
+    <EventCard
+      href="/event/new"
+      className="flex flex-col items-center justify-center bg-gray-200"
+    >
       <Image
         alt="Botão adicionar churras"
         src="/add-icon.svg"

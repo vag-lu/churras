@@ -1,4 +1,4 @@
-export type ScheduledEent = {
+export type ScheduledEventType = {
   id: number;
   date: Date;
   title: string;
