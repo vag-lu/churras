@@ -26,5 +26,10 @@ export function useServices() {
     return response;
   };
 
-  return { getScheduledEvents, setScheduledEvent };
+  const getEventById = (id: string) => {
+    const response = getScheduledEvents();
+    return response[parseInt(id) - 1];
+  };
+
+  return { getScheduledEvents, setScheduledEvent, getEventById };
 }

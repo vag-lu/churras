@@ -1,2 +1,2 @@
 export * from "./session-storage";
-export * from "./services/get-scheduled-events";
+export * from "./services/services";

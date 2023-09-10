@@ -1,13 +1,15 @@
-import { ScheduledEvent } from "@/modules";
+import { ScheduledEventType } from "@/modules";
 import { sumTotalValue } from "@/utils";
 import Image from "next/image";
 
 type EventHeadProps = {
-  event: ScheduledEvent;
+  event: ScheduledEventType;
 };
 
 export function EventHead({ event }: EventHeadProps) {
-  const { date, title, attendees } = event;
+  const { title, attendees } = event;
+  const date = new Date(event.date);
+
   return (
     <section className="flex justify-between mb-6">
       <div>

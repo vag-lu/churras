@@ -2,10 +2,11 @@ export type ScheduledEventType = {
   id: number;
   date: Date;
   title: string;
-  attendees: Attendee[];
+  attendees: AttendeeType[];
 };
 
-export type Attendee = {
+export type AttendeeType = {
+  id: number;
   name: string;
   contribution: number;
   paid: boolean;
