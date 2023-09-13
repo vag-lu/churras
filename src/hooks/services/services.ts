@@ -28,7 +28,7 @@ export function useServices() {
 
   const getEventById = (id: string) => {
     const response = getScheduledEvents();
-    return response[parseInt(id) - 1];
+    return response.find((event) => event.id.toString() === id);
   };
 
   return { getScheduledEvents, setScheduledEvent, getEventById };

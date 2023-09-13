@@ -14,7 +14,7 @@ export function EventHead({ event }: EventHeadProps) {
     <section className="flex justify-between mb-6">
       <div>
         <p className="text-3xl font-extrabold">
-          {date.getDay()}/{date.getMonth() + 1}
+          {date.getDate() + 1}/{date.getMonth() + 1}
         </p>
         <p className="text-3xl font-bold">{title}</p>
       </div>
